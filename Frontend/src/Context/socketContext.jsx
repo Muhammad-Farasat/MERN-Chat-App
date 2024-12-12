@@ -20,7 +20,7 @@ export const SocketContextProvider = ({children}) =>{
     useEffect(()=>{
         // console.log();
         if (authUser) {
-            const socket = io('http://localhost:5000',{
+            const socket = io('https://mern-chat-app-three-omega.vercel.app',{
                 query:{ userId: authUser.user.id}
             })
             setSocket(socket)

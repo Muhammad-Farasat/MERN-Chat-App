@@ -12,7 +12,7 @@ export const useGetMessage = () => {
             try {
                 const token = localStorage.getItem("auth-token");
                 const res = await fetch(
-                    `http://localhost:5000/api/message/${selectedConversation._id}`,
+                    `https://mern-chat-app-three-omega.vercel.app/api/message/${selectedConversation._id}`,
                     {
                         method: "GET",
                         headers: {

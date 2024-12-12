@@ -16,7 +16,7 @@ const useSignup = () =>{
         setLoading(true)
 
         try {
-            const res = await fetch("http://localhost:5000/api/auth/signup", {
+            const res = await fetch("https://mern-chat-app-three-omega.vercel.app/api/auth/signup", {
                 method: "POST",
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify({fullName,username,gender,password,confirmPassword}),

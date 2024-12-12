@@ -10,7 +10,7 @@ export const useGetConversation = () => {
             setLoading(true)
             try {
                 const token = localStorage.getItem('auth-token')
-                const res = await fetch(`http://localhost:5000/api/users/sidebar`, {
+                const res = await fetch(`https://mern-chat-app-three-omega.vercel.app/api/users/sidebar`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
