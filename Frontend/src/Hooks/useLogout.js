@@ -12,7 +12,7 @@ const uselogout = () =>{
         setLoading(true)
 
         try {
-            const res = await fetch("https://mern-chat-app-three-omega.vercel.app/api/auth/logout", {
+            const res = await fetch("/api/auth/logout", {
                 method: "POST",
                 headers: {"Content-type": "application/json"},
                 })

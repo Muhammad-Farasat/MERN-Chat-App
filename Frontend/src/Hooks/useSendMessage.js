@@ -10,7 +10,7 @@ export const useSendMessage = () => {
         setLoading(true)
         try {
             const token = localStorage.getItem('auth-token')
-            const res = await fetch(`https://mern-chat-app-three-omega.vercel.app/api/message/send/${selectedConversation._id}`,{
+            const res = await fetch(`/api/message/send/${selectedConversation._id}`,{
                 method: 'POST',
                 headers:{
                     'Content-type': 'application/json',
