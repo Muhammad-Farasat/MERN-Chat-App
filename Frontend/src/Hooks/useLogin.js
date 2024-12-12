@@ -13,7 +13,7 @@ const useLogin = () => {
         
         try {
             
-            const res = await fetch("/api/auth/login", {
+            const res = await fetch("https://mern-chat-app-three-omega.vercel.app/api/auth/login", {
                 method: "POST",
                 headers: { "content-type": "application/json"},
                 body: JSON.stringify({username, password}),
