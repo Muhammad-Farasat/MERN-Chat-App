@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+    height: 100vh;
+}
+body{
+    /* background-image: url('./assets/Images/bg_imge.jpg'); */
+    background-position: center;
+    /* background-size: cover; */
+    color: #fff;
+}
