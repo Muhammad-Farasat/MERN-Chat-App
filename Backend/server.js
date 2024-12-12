@@ -21,13 +21,7 @@ dotenv.config();
 
 const __dirname = path.resolve()
 
-app.use(
-  cors({
-    origin: 'https://mern-chat-app-three-omega.vercel.app', // Frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // For cookies or auth headers
-  })
-);
+app.use(cors());
 
 
 
