@@ -21,11 +21,7 @@ dotenv.config();
 
 const __dirname = path.resolve()
 
-app.use(cors({
-  origin: 'https://mern-chat-k5duixan8-muhammad-farasats-projects.vercel.app', // Allow your frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true // If you need to allow cookies or authentication headers
-}));
+app.use(cors());
 
 
 app.use(express.json());
