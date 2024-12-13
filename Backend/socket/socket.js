@@ -25,7 +25,6 @@ io.on("connection", (socket)=>{
     if(userId != "undefined") {
         userSocketMap[userId] = socket.id
     }
-    console.log(socket.handshake.query.userId);
     io.emit("OnlineUser" , Object.keys(userSocketMap))
 
     socket.on("disconnect", ()=>{

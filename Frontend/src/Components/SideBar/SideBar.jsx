@@ -28,7 +28,10 @@ function SideBar() {
         if(conversation){
             setSelectedConversation(conversation)
             setSearch("")
-        }else toast.error("No user found")
+        }else {
+            toast.error("No user found")
+            console.log("Error in sidebar component");
+        } 
 
 
     }

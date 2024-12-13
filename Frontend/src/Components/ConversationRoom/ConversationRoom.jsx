@@ -9,6 +9,8 @@ function ConversationRoom() {
 
     const { selectedConversation, setSelectedConversation } = useConversation();
     const { authUser } = useAuthContext();
+
+    // console.log("Here in conversation component");
     
     useEffect(()=>{
         return ()=>setSelectedConversation(null)
@@ -22,6 +24,7 @@ function ConversationRoom() {
                 <div className="flex flex-col w-full overflow-y-scroll ">
                     
                     {/* Chat Header */}
+                {/* {console.log("Here in conversation")} */}
                     <ConversationHead />
 
                     {/* Chat Messages */}

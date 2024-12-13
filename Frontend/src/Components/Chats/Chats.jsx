@@ -11,7 +11,10 @@ function Chats() {
     const { authUser } = useAuthContext();
     const messagesEndRef = useRef(null)
 
+    // console.log("Here in chat component");
     useListenMessage()
+
+
 
     useEffect(()=>{
         if(messagesEndRef.current){

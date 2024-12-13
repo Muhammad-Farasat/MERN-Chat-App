@@ -31,9 +31,6 @@ app.use(cookieParser())
 app.use("/api/auth", authRoutes)
 app.use("/api/message", messageRoutes)
 app.use("/api/users", userRoutes)
-app.get('/test', (req, res) => {
-  res.send('Auth route is working!');
-});
 
 
 

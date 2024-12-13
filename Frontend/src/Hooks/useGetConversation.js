@@ -10,13 +10,14 @@ export const useGetConversation = () => {
             setLoading(true)
             try {
                 const token = localStorage.getItem('auth-token')
-                const res = await fetch(`/api/users/sidebar`, {
+                const res = await fetch(`http://localhost:5000/api/users/sidebar`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     }, // Include the token in the Authorization header
                 });
+                console.log("Get conversation", res);
                 const data = await res.json();
                 if (data.error) {
                     throw new Error(data.error)
