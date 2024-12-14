@@ -4,6 +4,7 @@ import express from "express";
 
 const app = express()
 
+
 const server = http.createServer(app)
 const io = new Server(server,{
     cors:{
@@ -22,6 +23,7 @@ io.on("connection", (socket)=>{
     console.log("User connected", socket.id);
 
     const userId = socket.handshake.query.userId
+    console.log("This is userId from backend", userId);
     if(userId != "undefined") {
         userSocketMap[userId] = socket.id
     }

@@ -6,8 +6,8 @@ import connectToMongoDb from './db/connectToMongoDb.js';
 import cookieParser from 'cookie-parser';
 import path from  'path'
 import userRoutes from './routes/user.route.js'
-import { app, server } from './socket/socket.js';
 import cors from 'cors';
+import { app, server } from './socket/socket.js';
 
 
 const PORT = process.env.PORT || 5000

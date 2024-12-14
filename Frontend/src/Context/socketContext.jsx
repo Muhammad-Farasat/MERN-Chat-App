@@ -1,6 +1,6 @@
 import {createContext, useEffect, useState, useContext} from 'react'
 import { useAuthContext } from './authContext'
-import io from 'socket.io-client'
+import {io} from 'socket.io-client'
 
 
 
@@ -12,7 +12,7 @@ export const useSocketContext = () => {
 
 export const SocketContextProvider = ({children}) =>{
 
-
+    
     const [socket, setSocket] = useState()
     const [online, setOnline] = useState([])
     const {authUser} = useAuthContext()
@@ -20,11 +20,14 @@ export const SocketContextProvider = ({children}) =>{
     useEffect(()=>{
         // console.log();
         if (authUser) {
-            const socket = io('',{
+            const socket = io('http://localhost:5000',{
                 query:{ userId: authUser.user.id}
             })
-            setSocket(socket)
 
+            console.log("This is auth user backend ", authUser.user.id);
+
+            setSocket(socket)
+            
             socket.on('OnlineUser', (users)=>{
                 setOnline(users)
             })
