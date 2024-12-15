@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.send("Hello World...!")
 })
 
-app.post('/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.send("This is testing...!")
 })
 
