@@ -15,9 +15,6 @@ const PORT = process.env.PORT || 5000
 dotenv.config();  
 
 
-// app.get('/', (req, res) => {
-//   res.send("Hello World...!")
-// })
 
 const __dirname = path.resolve()
 
@@ -32,6 +29,9 @@ app.use("/api/auth", authRoutes)
 app.use("/api/message", messageRoutes)
 app.use("/api/users", userRoutes)
 
+app.get('/', (req, res) => {
+  res.send("Hello World...!")
+})
 
 
 // app.use(express.static(path.join(__dirname, "/dist")))
