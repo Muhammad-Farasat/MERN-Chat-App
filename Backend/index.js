@@ -33,6 +33,10 @@ app.get('/', (req, res) => {
   res.send("Hello World...!")
 })
 
+app.post('/test', (req, res) => {
+  res.send("This is testing...!")
+})
+
 
 // app.use(express.static(path.join(__dirname, "/dist")))
 // app.get("*", (req, res)=>{
