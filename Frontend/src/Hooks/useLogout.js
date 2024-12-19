@@ -6,13 +6,14 @@ const uselogout = () =>{
 
     const [loading, setLoading] = useState(false)
     const {setAuthUser} = useAuthContext()
+    const backend_url = import.meta.env.VITE_BACKEND_URL
 
 
     const logout = async () => {
         setLoading(true)
 
         try {
-            const res = await fetch("http://localhost:5000/api/auth/logout", {
+            const res = await fetch(`${backend_url}/api/auth/logout`, {
                 method: "POST",
                 headers: {"Content-type": "application/json"},
                 })

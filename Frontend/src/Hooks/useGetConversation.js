@@ -4,13 +4,14 @@ import toast from 'react-hot-toast'
 export const useGetConversation = () => {    
     const [loading, setLoading] = useState(false)
     const [conversations, setConversations] = useState([])
+    const backend_url = import.meta.env.VITE_BACKEND_URL
     
     useEffect(() => {
         const getConversation = async() => {
             setLoading(true)
             try {
                 const token = localStorage.getItem('auth-token')
-                const res = await fetch(`http://localhost:5000/api/users/sidebar`, {
+                const res = await fetch(`${backend_url}/api/users/sidebar`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

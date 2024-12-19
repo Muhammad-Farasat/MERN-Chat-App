@@ -6,13 +6,16 @@ export const useGetMessage = () => {
     const [loading, setLoading] = useState(false);
     const { messages, setMessages, selectedConversation } = useConversation();
 
+    const backend_url = import.meta.env.VITE_BACKEND_URL
+
+
     useEffect(() => {
         const getMessage = async () => {
             setLoading(true);
             try {
                 const token = localStorage.getItem("auth-token");
                 const res = await fetch(
-                    `http://localhost:5000/api/message/${selectedConversation._id}`,
+                    `${backend_url}/api/message/${selectedConversation._id}`,
                     {
                         method: "GET",
                         headers: {

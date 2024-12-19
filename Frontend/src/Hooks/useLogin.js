@@ -6,6 +6,8 @@ const useLogin = () => {
  
     const [loading, setLoading] = useState(false)
     const {authUser, setAuthUser} = useAuthContext()
+    const backend_url = import.meta.env.VITE_BACKEND_URL
+
 
     const login = async(username, password) => {
 
@@ -13,7 +15,7 @@ const useLogin = () => {
         
         try {
             
-            const res = await fetch("http://localhost:5000/api/auth/login", {
+            const res = await fetch(`${backend_url}/api/auth/login`, {
                 method: "POST",
                 headers: { "content-type": "application/json"},
                 body: JSON.stringify({username, password}),

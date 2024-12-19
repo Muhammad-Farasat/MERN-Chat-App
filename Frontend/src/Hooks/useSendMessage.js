@@ -5,12 +5,14 @@ export const useSendMessage = () => {
 
     const [loading, setLoading] = useState(false)
     const {messages, setMessages, selectedConversation} = useConversation()
+    const backend_url = import.meta.env.VITE_BACKEND_URL
+    
 
     const sendMessage = async(message) =>{
         setLoading(true)
         try {
             const token = localStorage.getItem('auth-token')
-            const res = await fetch(`http://localhost:5000/api/message/send/${selectedConversation._id}`,{
+            const res = await fetch(`${backend_url}/api/message/send/${selectedConversation._id}`,{
                 method: 'POST',
                 headers:{
                     'Content-type': 'application/json',
