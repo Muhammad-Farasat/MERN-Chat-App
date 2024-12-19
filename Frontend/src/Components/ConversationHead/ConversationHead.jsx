@@ -1,26 +1,32 @@
 import React from "react";
-import useConversation from '../../Zustand/useConversation';
-
+import useConversation from "../../Zustand/useConversation";
 
 function ConversationHead() {
-    const { selectedConversation } = useConversation();
-    
-    
-    
-    return (
+  const { selectedConversation } = useConversation();
+
+  return (
     <>
-      <div className="head">
-        <div className="flex items-center mt-4 space-x-8">
+      <div className="flex flex-col w-full bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg px-4 py-3 rounded-lg shadow-md">
+        <div className="flex items-center space-x-6">
+          {/* Profile Picture */}
           <div className="avatar">
-            <div className="w-14 rounded-full">
-              <img src={selectedConversation.profilePic} alt="Profile" />
+            <div className="w-16 h-16 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img
+                src={selectedConversation.profilePic}
+                alt="Profile"
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
-          <div className="font-bold text-xl">
-            <p>{selectedConversation.fullName}</p>
+
+          {/* User Info */}
+          <div>
+            <p className="text-lg font-bold text-gray-800">
+              {selectedConversation.fullName}
+            </p>
           </div>
         </div>
-        <div className="divider"></div>
+        <div className="mt-4 border-t border-gray-300"></div>
       </div>
     </>
   );

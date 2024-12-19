@@ -30,7 +30,7 @@ export const useGetMessage = () => {
                 setLoading(false);
             }
         };
-
+        setMessages([])
         if (selectedConversation?._id) getMessage();
     }, [selectedConversation?._id, setMessages]);
 
