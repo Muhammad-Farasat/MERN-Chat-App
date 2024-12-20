@@ -11,7 +11,7 @@ export const useGetConversation = () => {
             setLoading(true)
             try {
                 const token = localStorage.getItem('auth-token')
-                const res = await fetch(`${backend_url}/api/users/sidebar`, {
+                const res = await fetch(`${backend_url}/users/sidebar`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

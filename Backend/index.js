@@ -22,9 +22,9 @@ app.use(express.json());
 
 app.use(cookieParser())
 
-app.use("/api/auth", authRoutes)
-app.use("/api/message", messageRoutes)
-app.use("/api/users", userRoutes)
+app.use("/auth", authRoutes)
+app.use("/message", messageRoutes)
+app.use("/users", userRoutes)
 
 app.get('/', (req, res) => {
   res.send("Hello World...!")

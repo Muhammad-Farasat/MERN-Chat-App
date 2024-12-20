@@ -15,7 +15,7 @@ export const useGetMessage = () => {
             try {
                 const token = localStorage.getItem("auth-token");
                 const res = await fetch(
-                    `${backend_url}/api/message/${selectedConversation._id}`,
+                    `${backend_url}/message/${selectedConversation._id}`,
                     {
                         method: "GET",
                         headers: {
