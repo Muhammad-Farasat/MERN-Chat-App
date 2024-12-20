@@ -16,23 +16,7 @@ dotenv.config();
 
 
 
-const allowedOrigins = [
-  'http://localhost:3000', // Dev frontend
-  'https://mern-chat-app-frontend-three.vercel.app', // Production frontend
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-          callback(null, true);
-      } else {
-          callback(new Error('Not allowed by CORS'));
-      }
-    },
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 
