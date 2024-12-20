@@ -18,7 +18,8 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: 'https://mern-chat-app-frontend-three.vercel.app'
+  origin: 'https://mern-chat-app-frontend-three.vercel.app',
+  credentials: true
 }));
 
 
