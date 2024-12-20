@@ -16,7 +16,6 @@ dotenv.config();
 
 
 
-const __dirname = path.resolve()
 
 app.use(cors());
 
