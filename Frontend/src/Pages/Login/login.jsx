@@ -62,7 +62,7 @@ function login() {
               type="submit"
               className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-all duration-200"
             >
-              Login
+              {loading ? <div className="loading loading-spinner"></div> : 'Login'}
             </button>
           </div>
         </form>
