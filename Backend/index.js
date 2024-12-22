@@ -20,8 +20,6 @@ dotenv.config();
 app.use(express.json());
 
 
-app.use(cookieParser())
-
 app.use("/auth", authRoutes)
 app.use("/message", messageRoutes)
 app.use("/users", userRoutes)
