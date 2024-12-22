@@ -17,7 +17,7 @@ const useLogin = () => {
             
             const res = await fetch(`${backend_url}/auth/login`, {
                 method: "POST",
-                // headers: { "content-type": "application/json"},
+                headers: { "content-type": "application/json"},
                 body: JSON.stringify({username, password}),
             });
 
