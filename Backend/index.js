@@ -3,8 +3,6 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.route.js'
 import messageRoutes from './routes/message.route.js'
 import connectToMongoDb from './db/connectToMongoDb.js';
-import cookieParser from 'cookie-parser';
-import path from  'path'
 import userRoutes from './routes/user.route.js'
 import cors from 'cors';
 import { app, server } from './socket/socket.js';
