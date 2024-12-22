@@ -10,11 +10,14 @@ import cors from 'cors';
 import { app, server } from './socket/socket.js';
 
 
-app.use(cors());
 const PORT = process.env.PORT || 5000
 
 dotenv.config();  
 
+app.use(cors({
+  origin: 'https://mern-chat-app-frontend-topaz.vercel.app'
+}
+));
 
 
 app.use(express.json());
