@@ -28,11 +28,11 @@ function App() {
 
 <div className="app hidden max-sm:flex  ">
       {/* Sidebar */}
-      {showSidebar && (
+      {showSidebar && authUser ? (
         <div className="sidebar max-sm:w-full sm:w-1/4">
           <SideBar onUserClick={() => setShowSidebar(false)} />
         </div>
-      )}
+      ):null}
 
       {/* Conversation Room */}
       {!showSidebar &&  (
