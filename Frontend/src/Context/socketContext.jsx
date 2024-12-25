@@ -22,7 +22,8 @@ export const SocketContextProvider = ({children}) =>{
         // console.log();
         if (authUser) {
             const socket = io(`${backend_url}`,{
-                query:{ userId: authUser.user.id}
+                query:{ userId: authUser.user.id},
+                transports: ['websocket'],
             })
 
             console.log("This is auth user backend ", authUser.user.id);
