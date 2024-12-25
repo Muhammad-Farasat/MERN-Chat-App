@@ -12,7 +12,10 @@ const PORT = process.env.PORT || '5000'
 
 dotenv.config();  
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://chat-app-frontend-plum.vercel.app',
+  methods: ["GET", "POST"]
+}))
 
 app.use(express.json());
 
