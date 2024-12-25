@@ -41,6 +41,10 @@ export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
+    console.log("This is body", req.body);
+    console.log("This is header", req.headers);
+
+
     if (!username || !password) {
       return res.status(400).json({ error: "fill all feild..!" });
     }
