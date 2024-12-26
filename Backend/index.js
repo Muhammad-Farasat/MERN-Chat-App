@@ -8,14 +8,11 @@ import cors from 'cors';
 import { app, server } from './socket/socket.js';
 
 
-const PORT = process.env.PORT || '5000'
+const PORT = process.env.PORT || 5000
 
 dotenv.config();  
 
-app.use(cors({
-  origin: 'https://chat-app-frontend-plum.vercel.app',
-  methods: ["GET", "POST"]
-}))
+app.use(cors())
 
 app.use(express.json());
 
