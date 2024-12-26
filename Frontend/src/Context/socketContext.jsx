@@ -21,7 +21,7 @@ export const SocketContextProvider = ({children}) =>{
     useEffect(()=>{
         // console.log();
         if (authUser) {
-            const socket = io(`${backend_url}`,{
+            const socket = io(``,{
                 query:{ userId: authUser.user.id},
                 transports: ['websocket'],
             })

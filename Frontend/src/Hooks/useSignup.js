@@ -17,7 +17,7 @@ const useSignup = () =>{
         setLoading(true)
 
         try {
-            const res = await fetch(`${backend_url}/auth/signup`, {
+            const res = await fetch(`/auth/signup`, {
                 method: "POST",
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify({fullName,username,gender,password,confirmPassword}),
