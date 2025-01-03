@@ -30,7 +30,7 @@ const useLogin = () => {
 
             localStorage.setItem("auth-token",data.token)
             setAuthUser(data);
-
+            console.log({user: data});
 
         } catch (error) {
             toast.error(error.message || "An error occurred during login");

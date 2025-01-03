@@ -6,7 +6,7 @@ function ConversationHead() {
 
   return (
     <>
-      <div className="flex flex-col w-full bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg px-4 py-3 rounded-lg shadow-md">
+      <div className=" max-sm:sticky max-sm:top-0 max-sm:z-10 flex flex-col w-full bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg px-4 py-3 rounded-lg shadow-md">
         <div className="flex items-center space-x-6">
           {/* Profile Picture */}
           <div className="avatar">

@@ -16,9 +16,8 @@ export const useGetConversation = () => {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
-                    }, // Include the token in the Authorization header
+                    }, 
                 });
-                console.log("Get conversation", res);
                 const data = await res.json();
                 if (data.error) {
                     throw new Error(data.error)

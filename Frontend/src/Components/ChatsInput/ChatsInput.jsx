@@ -26,13 +26,13 @@ function ChatsInput() {
                         <input
                             type="text"
                             placeholder="Send a message"
-                            className="input input-bordered w-full rounded-md px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className=" bg-[#222] border-[#222] text-[#fff] w-full rounded-md px-4 py-2.5 border focus:outline-none focus:ring-2 focus:ring-blue-500"
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
                         />
                         <button
                             type="submit"
-                            className="ml-4 text-2xl text-gray-500 hover:text-gray-700"
+                            className="ml-4 text-3xl text-[#fff] "
                         >
                             {sendLoading ? (
                             <div className="loading loading-spinner"></div>

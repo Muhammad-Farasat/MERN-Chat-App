@@ -1,5 +1,4 @@
 import User from "../model/user.model.js";
-import jwt from 'jsonwebtoken'
 
 export const getUserForSidebar = async (req, res) => {
     try {
@@ -16,4 +15,3 @@ export const getUserForSidebar = async (req, res) => {
         res.status(403).json({ error: "Invalid or expired token" });
     }
 };
-

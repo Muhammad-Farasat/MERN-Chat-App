@@ -11,8 +11,15 @@ function SideBar({onUserClick}) {
   const { loading, logout } = uselogout();
   const { conversations } = useGetConversation();
   const { setSelectedConversation } = useConversation();
-
   const [search, setSearch] = useState("");
+
+  const sortedConversations = conversations.sort((a,b)=>{
+    const aTime = new Date(a.lastMessageTime).getTime();
+    const bTime = new Date(b.lastMessageTime).getTime();
+
+    return bTime-aTime;
+
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,28 +30,22 @@ function SideBar({onUserClick}) {
     const conversation = conversations.find((c) =>
       c.fullName.toLowerCase().includes(search.toLocaleLowerCase())
     );
-
     if (conversation) {
       setSelectedConversation(conversation);
       setSearch("")
-      onUserClick={onUserClick}
     } else {
       toast.error("No user found");
       console.log("Error in sidebar component");
     }
   };
 
-  // const handleUserSelection = () =>{
-  //   onUserClick()
-  // }
-
   return (
-    <div className="w-full px-4 pt-6 h-full flex flex-col bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg">
+    <div className="w-full px-4 pt-6 h-full flex flex-col bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg shadow-lg  ">
       <form className="flex items-center mb-4" onSubmit={handleSubmit}>
-        <label className="input input-bordered w-full flex items-center gap-2 relative">
+        <label className=" border border-black rounded-md w-full flex items-center gap-2 relative">
           <input
             type="text"
-            className="grow bg-transparent outline-none px-3 py-2 "
+            className="grow bg-[#111] border-black text-[#fff] border  rounded-md outline-none px-3 py-2 "
             placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -58,10 +59,11 @@ function SideBar({onUserClick}) {
       <div className="divider"></div>
 
       <div className="flex-grow overflow-y-auto">
-        {conversations.map((conversation, idx) => (
+        {sortedConversations.map((conversation, idx) => (
           <Conversation
             key={conversation._id}
             conversation={conversation}
+            lastMessage={conversation.lastMessage}
             lastIdx={idx === conversations.length - 1}
             onUserClick={onUserClick}
           />
@@ -71,8 +73,8 @@ function SideBar({onUserClick}) {
         )}
       </div>
 
-      <div className="flex items-center justify-center cursor-pointer font-bold gap-2 text-lg text-red-500 mt-3">
-        <MdLogout onClick={logout} />
+      <div onClick={logout} className="sticky bottom-0 flex items-center justify-center cursor-pointer font-bold gap-2 text-lg text-red-500 py-2">
+        <MdLogout/>
         <p>Logout</p>
       </div>
     </div>

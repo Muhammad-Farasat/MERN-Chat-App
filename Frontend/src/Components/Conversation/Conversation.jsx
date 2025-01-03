@@ -11,8 +11,13 @@ function Conversation({ conversation, lastIdx, onUserClick }) {
   // console.log("This is online", online);
 
   const handleClick = () =>{
+    if (isSelected) {
+      console.log("Already open");
+      return
+    }
     setSelectedConversation(conversation)
-    onUserClick()
+    onUserClick(conversation._id, conversation)
+    console.log("Conversations component: ", conversation._id);
   }
 
   return (
@@ -32,9 +37,6 @@ function Conversation({ conversation, lastIdx, onUserClick }) {
               className="object-cover w-full h-full"
             />
           </div>
-          {isOnline && (
-            <span className="absolute bottom-0 right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
-          )}
         </div>
 
         <div>

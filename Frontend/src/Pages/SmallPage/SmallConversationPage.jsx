@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import useConversation from "../../Zustand/useConversation";
 import { useAuthContext } from "../../Context/authContext";
-import ConversationHead from "../ConversationHead/ConversationHead";
-import Chats from "../Chats/Chats";
-import ChatsInput from "../ChatsInput/ChatsInput";
-import Conversation from "../Conversation/Conversation";
+import ConversationHead from "../../Components/ConversationHead/ConversationHead";
+import Chats from "../../Components/Chats/Chats";
+import ChatsInput from "../../Components/ChatsInput/ChatsInput";
+
+
 
 function ConversationRoom() {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -12,15 +13,27 @@ function ConversationRoom() {
 
   useEffect(() => {
     
-    return ()=>setSelectedConversation(selectedConversation)
-    
-  }, [setSelectedConversation]);
-  
+    if(!selectedConversation){
+      const storedConversation = localStorage.getItem("selectedConversation");
+      if (storedConversation) {
+        setSelectedConversation(JSON.parse(storedConversation));
+        }
+    }
+  }, [setSelectedConversation, selectedConversation]);
+
+  useEffect(() => {
+    if (selectedConversation) {
+      localStorage.setItem("selectedConversation", JSON.stringify(selectedConversation));
+    } else {
+      localStorage.removeItem("selectedConversation");
+    }
+  }, [selectedConversation]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
-        setSelectedConversation(null);
+        setSelectedConversation(null); // Reset selected conversation
+        localStorage.removeItem("selectedConversation")
       }
     };
 
@@ -32,6 +45,7 @@ function ConversationRoom() {
     };
   }, [setSelectedConversation]);
 
+  console.log(selectedConversation)
   return (
     <>
       {!selectedConversation ? (

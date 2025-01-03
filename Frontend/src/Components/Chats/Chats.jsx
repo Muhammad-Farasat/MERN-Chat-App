@@ -14,27 +14,31 @@ function Chats() {
     // console.log("Here in chat component");
     useListenMessage()
 
-
-
     useEffect(()=>{
         if(messagesEndRef.current){
-            messagesEndRef.current.scrollIntoView({ behavior: "smooth" }); // Corrected "behaviour" typo
+            messagesEndRef.current.scrollIntoView({ block: "end" }); // Corrected "behaviour" typo
         }
-    },[ messages])
+    },[messages])
+
+    if(!authUser || !authUser.user || !Array.isArray(messages)){
+      <div className="flex justify-center items-center font-bold text-3xl mt-32">
+        <p>Loading...</p>
+      </div>
+    }
 
   return (
     <>
       <div className="chats">
-        {Array.isArray(messages) && messages.length > 0 ? (
+        {messages.length > 0 ? (
           messages.map((msg) => {
             if (!authUser?.user) return null;
             const isSender = authUser.user.id === msg.senderId;
-            const messageChat = isSender ? "chat-end" : "chat-start";
+            const messageChat = !isSender ? "chat-start" : "chat-end";
             const chatStyle = isSender ? "bg-blue-500" : "";
           
             return (
               <div key={msg._id} className={`chat ${messageChat}  `}>
-                <div className={`chat-bubble text-white ${chatStyle}`}>
+                <div className={`chat-bubble text-white ${chatStyle} break-words `}>
                   {msg.message}
                 </div>
                 <div className="chat-footer">
@@ -49,7 +53,9 @@ function Chats() {
             );
           })
         ) : (
-          <p>Start chating</p>
+            <div className=' flex justify-center items-center font-bold text-3xl mt-32 '>
+              <p>Start chating</p>
+            </div>
         )}
         <div ref={messagesEndRef} />
       </div>

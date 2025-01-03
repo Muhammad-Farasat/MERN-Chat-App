@@ -23,13 +23,11 @@ app.use('/auth', authRoutes);
 app.use('/message', messageRoutes);
 app.use('/users', userRoutes);
 
-// Serve Static Files
-app.use(express.static(path.join(__dirname, '/dist')));
+// app.use(express.static(path.join(__dirname, '/dist')));
 
-// Catch-All Route for Frontend
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
 
 // Start Server
 server.listen(PORT, () => {
