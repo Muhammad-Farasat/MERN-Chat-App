@@ -10,10 +10,10 @@ import SmallPage from "./Pages/SmallPage/SmallPage.jsx";
 
 function App() {
   const { authUser } = useAuthContext();
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 639);
 
   useEffect(() => {
-    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 639);
     window.addEventListener("resize", handleResize);
 
     return () => {

@@ -40,7 +40,7 @@ function Conversation({ conversation, lastIdx, onUserClick }) {
         </div>
 
         <div>
-          <p className="text-base font-medium">{conversation.fullName}</p>
+          <p className="text-base font-medium  ">{conversation.fullName}</p>
         </div>
       </div>
 
