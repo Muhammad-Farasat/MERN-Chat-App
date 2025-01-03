@@ -23,13 +23,13 @@ app.use('/auth', authRoutes);
 app.use('/message', messageRoutes);
 app.use('/users', userRoutes);
 
-// app.use(express.static(path.join(__dirname, '/dist')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
-// Start Server
+
 server.listen(PORT, () => {
   connectToMongoDb();
   console.log(`Server is listening on port ${PORT}`);
